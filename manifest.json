@@ -7,5 +7,13 @@
         "js": ["jquery.min.js","content_script.js"],
         "matches": ["http://live.bilibili.com/*"]
     }],
-    "manifest_version": 2
+    "manifest_version": 2,
+	"browser_action": {
+      "default_icon": "image/48.png",
+      "icon": {
+         "128": "image/128.png",
+         "16": "image/16.png",
+         "48": "image/48.png"
+      }
+   }
 }

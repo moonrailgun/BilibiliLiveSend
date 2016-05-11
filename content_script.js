@@ -7,7 +7,7 @@ $(function () {
         if (msg != '') {
             msg = $.trim(msg);//去除首尾空格
             $("#player_object")[0].sendMsg(msg, color);//调用播放器的方法发送弹幕
-            console.log("弹幕消息发送完毕");
+            console.log("弹幕消息发送完毕:" + msg);
         } else {
             console.log("弹幕消息内容为空");
         }
@@ -43,15 +43,14 @@ $(function () {
         $('.room-intro:last').before(html);
     };
 
-
     addHtml();
     $('#bls .bls-sendOnce').click(function () {
-        var msg = $('#bls .bls-sendInput').val();
-        sendDanmuOnce();
+        var msg = $('#bls .bls-sendInput').val() || '';
+        sendDanmuOnce(msg);
     });
     $('#bls .bls-sendMultiple').click(function () {
-        var times = $('#bls .bls-sendMultipleTimes').val();
-        var msg = $('#bls .bls-sendInput').val() || 0;
+        var times = $('#bls .bls-sendMultipleTimes').val() || 0;
+        var msg = $('#bls .bls-sendInput').val() || '';
         times = Number(times);
         restDanmuTaskNum = times;
         sendDanmuMultipleTimes(msg);
