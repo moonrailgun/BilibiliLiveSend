@@ -6,6 +6,7 @@ Basic on Chrome Extensions
 ## 如何安装 ##
 
 ### 墙内用户 ###
+[点击此处下载离线安装插件包](https://github.com/moonrailgun/BilibiliLiveSend/releases/download/0.0.1/BilibiliLiveSend.crx)
 在github上下载crx文件。打开`->更多工具->扩展程序`或在地址栏中输入`chrome://extensions/`打开chrome扩展程序标签页。将下载的crx文件直接拖入完成安装。
 
 ### 墙外用户 ###
