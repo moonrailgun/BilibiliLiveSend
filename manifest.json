@@ -1,0 +1,11 @@
+{
+    "name": "BilibiliLiveSend",
+    "version": "0.0.1",
+    "description": "自动发送bilibili直播弹幕的chrome插件",
+    "content_scripts": [{
+        "css": [],
+        "js": ["jquery.min.js","content_script.js"],
+        "matches": ["http://live.bilibili.com/*"]
+    }],
+    "manifest_version": 2
+}
