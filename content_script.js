@@ -14,15 +14,15 @@ $(function () {
     };
 
     var restDanmuTaskNum = 0;
-    var sendDanmuMultipleTimes = function (msg) {
+    var sendDanmuMultipleTimes = function (msg, timeSpace) {
         setTimeout(function () {
             sendDanmuOnce(msg);
             restDanmuTaskNum--;
             if (restDanmuTaskNum > 0) {
-                sendDanmuMultipleTimes(msg);//迭代
+                sendDanmuMultipleTimes(msg, timeSpace);//迭代
             }
 
-        }, 200);
+        }, timeSpace);
     };
 
     var addHtml = function () {
@@ -34,6 +34,9 @@ $(function () {
         content += '<div class="clear-float danmu-sender" style="width:300px;">' +
             '<input type="number" class="danmu-textbox float-left bls-sendMultipleTimes" placeholder="连续发送多少次DA☆ZE～" style="height: auto;"/>' +
             '<button class="danmu-send-btn float-right live-btn default bls-sendMultiple" role="button" aria-label="点击发送弹幕" style="width: 55px;height: auto;">连续发送</button></div>';
+
+        content += '<div class="clear-float danmu-sender" style="width:100px;">' +
+            '<input type="number" class="danmu-textbox float-left bls-sendMultipleSpace" placeholder="间隔0.2s" style="height: auto;width: 80px;"/></div>';
 
 
         var html = '<div id="bls" class="main-section room-intro" ms-controller="roomIntroCtrl"><div class="section-header clear-float">' +
@@ -51,9 +54,11 @@ $(function () {
     $('#bls .bls-sendMultiple').click(function () {
         var times = $('#bls .bls-sendMultipleTimes').val() || 0;
         var msg = $('#bls .bls-sendInput').val() || '';
+        var timeSpace = $('#bls .bls-sendMultipleSpace').val() || 0.2;
+        timeSpace *= 1000;
         times = Number(times);
         restDanmuTaskNum = times;
-        sendDanmuMultipleTimes(msg);
+        sendDanmuMultipleTimes(msg, timeSpace);
     });
 
     console.log("BilibiliLiveSend 正在运行");
